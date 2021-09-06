@@ -1,4 +1,4 @@
-# https://leetcode.com/problems/course-schedule-ii/
+# https://leetcode.com/problems/course-schedule-ii/solution/
 class Solution:
 
     def findOrder(self, numCourses, prerequisites):
@@ -9,8 +9,9 @@ class Solution:
         """
 
         # Prepare the graph
-        adj_list = {}
-        indegree = {}
+        adj_list = {} # for example: {0: [1, 2], 1: [3], 2: [3]}
+        indegree = {} # for example: {1: 1, 2: 1, 3: 2}
+        
         for dest, src in prerequisites:
             if src not in adj_list:
                 adj_list[src] = []
