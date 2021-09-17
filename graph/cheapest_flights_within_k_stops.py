@@ -14,13 +14,12 @@ class Solution(object):
         distance = [float('inf')] * n
         distance[src] = 0
         
-        # Run Bellman-Ford
+        # Forcily run Bellman-Ford in worst case
         for _ in range(k+1):            
             curr = distance[:]           
             for i,j,price in flights:
                 if distance[i] + price < curr[j]:
                     curr[j] = distance[i] + price 
-            print(distance)
             distance = curr
                                         
         return distance[dst] if distance[dst] != float('inf') else -1
