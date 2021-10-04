@@ -17,21 +17,21 @@ class Solution(object):
             return None
         
         # Floyd's cycle-finding algorithm
-        fast = head.next
-        slow = head.next.next
+        tor = head.next
+        hare = head.next.next
 
         # First meet
-        while fast != slow and fast and slow and slow.next:		
-            fast = fast.next
-            slow = slow.next.next
+        while hare != tor and tor and hare and hare.next:		
+            tor = tor.next
+            hare = hare.next.next
 
-        if not slow:
+        if not hare:
             return None
 
         # Second meet
-        slow = head
-        while fast and slow:
-            if fast == slow:
-                return fast
-            fast = fast.next
-            slow = slow.next
+        tor = head
+        while tor and hare:
+            if tor == hare:
+                return tor
+            tor = tor.next
+            hare = hare.next        
